@@ -3,19 +3,35 @@
   "version": "1.0.0",
   "description": "Data structure and Algorithm (DSA) contributions",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "lint": "eslint src/**/*.js",
     "build": "node src/index.js",
-    "test": "echo 'Doesn't have test'"
+    "test": "jest --coverage",
+    "start": "nodemon src/index.js",
+    "update:deps": "npx npm-check -u"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.24.0",
+    "eslint": "^8.0.0",
     "eslint-config-google": "^0.14.0",
-    "prettier": "2.2.1"
+    "prettier": "^3.0.0",
+    "jest": "^29.0.0",
+    "nodemon": "^2.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.0",
+    "npm-check": "^6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
   },
   "repository": {
     "type": "git",
@@ -31,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/MakeContributions/DSA/issues"
   },
-  "homepage": "https://github.com/MakeContributions/DSA#readme"
+  "homepage": "https://github.com/MakeContributions/DSA#readme",
+  "engines": {
+    "node": ">=14"
+  }
 }
